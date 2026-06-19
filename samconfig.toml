@@ -1,0 +1,13 @@
+version = 0.1
+
+[default.build.parameters]
+cached = true
+parallel = true
+
+[default.deploy.parameters]
+stack_name = "valueos-fde-demo"
+resolve_s3 = true
+capabilities = "CAPABILITY_IAM"
+region = "us-east-1"
+parameter_overrides = "Stage=demo"
+confirm_changeset = false

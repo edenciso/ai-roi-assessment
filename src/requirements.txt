@@ -1,0 +1,3 @@
+# ValueOS FDE Demo — Python Dependencies
+# boto3 is included in Lambda runtime, no need to package it
+# All other dependencies are stdlib only

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI ROI Attribution & Cost Optimization Report — Nexus Digital Solutions</title>
+<style>
+:root { --green: #1DB954; --dark: #1A1A2E; --gray: #F5F5F5; --border: #E0E0E0; }
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; color: #1a1a1a; line-height: 1.6; background: #fff; }
+.container { max-width: 1100px; margin: 0 auto; padding: 0 40px; }
+header { background: var(--dark); color: white; padding: 48px 0 40px; }
+header .container { display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 20px; }
+.brand { font-size: 13px; letter-spacing: 3px; color: var(--green); font-weight: 700; margin-bottom: 8px; }
+header h1 { font-size: 28px; font-weight: 800; line-height: 1.2; }
+header .date { font-size: 14px; color: #aaa; text-align: right; }
+header .badge { background: var(--green); color: var(--dark); padding: 4px 14px; border-radius: 20px; font-weight: 700; font-size: 13px; display: inline-block; margin-top: 8px; }
+.kpi-bar { background: var(--gray); border-bottom: 1px solid var(--border); padding: 28px 0; }
+.kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 24px; }
+.kpi { text-align: center; }
+.kpi-value { font-size: 28px; font-weight: 800; color: var(--dark); }
+.kpi-value.green { color: var(--green); }
+.kpi-label { font-size: 12px; color: #666; text-transform: uppercase; letter-spacing: 1px; margin-top: 2px; }
+section { padding: 40px 0; border-bottom: 1px solid var(--border); }
+section:last-of-type { border-bottom: none; }
+h2 { font-size: 22px; font-weight: 700; color: var(--dark); margin-bottom: 16px; padding-bottom: 8px; border-bottom: 3px solid var(--green); display: inline-block; }
+h3 { font-size: 17px; font-weight: 600; color: #333; margin: 20px 0 8px; }
+p, li { font-size: 15px; color: #333; }
+.narrative { font-size: 15px; line-height: 1.8; color: #444; margin-bottom: 16px; white-space: pre-line; }
+.callout { background: #EBF9F0; border-left: 4px solid var(--green); padding: 16px 20px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+.callout.warn { background: #FFF8E1; border-color: #FF9800; }
+.callout p { margin: 0; }
+table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
+th { background: var(--dark); color: white; padding: 10px 12px; text-align: left; font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
+td { padding: 10px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
+tr:hover { background: #f9f9f9; }
+.num { text-align: right; font-variant-numeric: tabular-nums; font-weight: 600; }
+.sub { font-size: 12px; color: #888; }
+.tag { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 11px; font-weight: 700; }
+.tag-green { background: #E8F5E9; color: #2E7D32; }
+.tag-yellow { background: #FFF8E1; color: #F57F17; }
+.tag-red { background: #FFEBEE; color: #C62828; }
+.score { display: inline-block; width: 40px; height: 40px; line-height: 40px; text-align: center; border-radius: 50%; font-weight: 800; font-size: 14px; color: white; }
+.score-green { background: #1DB954; }
+.score-yellow { background: #FF9800; }
+.score-red { background: #F44336; }
+.grade-box { display: inline-flex; align-items: center; justify-content: center; width: 64px; height: 64px; border-radius: 16px; font-size: 36px; font-weight: 900; color: white; }
+.qw-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin: 16px 0; }
+.qw-card { border: 1px solid var(--border); border-radius: 12px; padding: 20px; position: relative; }
+.qw-card h4 { font-size: 15px; margin-bottom: 6px; }
+.qw-card p { font-size: 13px; color: #666; }
+.qw-savings { position: absolute; top: 12px; right: 16px; font-weight: 800; color: var(--green); font-size: 16px; }
+.qw-meta { font-size: 12px; color: #999; margin-top: 8px; }
+.phase-card { border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 12px 0; }
+.phase-card h4 { color: var(--dark); font-size: 16px; margin-bottom: 4px; }
+.phase-savings { font-size: 14px; color: var(--green); font-weight: 700; margin-bottom: 10px; }
+.phase-card ul { padding-left: 20px; }
+.phase-card li { font-size: 13px; margin-bottom: 4px; }
+.findings { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 16px 0; }
+.findings ul { padding-left: 18px; }
+.findings li { margin-bottom: 8px; font-size: 14px; }
+footer { background: var(--dark); color: #888; padding: 30px 0; font-size: 12px; text-align: center; }
+footer strong { color: var(--green); }
+@media print { header { -webkit-print-color-adjust: exact; print-color-adjust: exact; } }
+@media (max-width: 768px) { .kpi-grid { grid-template-columns: repeat(2, 1fr); } .findings { grid-template-columns: 1fr; } }
+</style></head><body>
+
+<header><div class="container">
+  <div><div class="brand">VALUEOS · AI ROI ATTRIBUTION</div>
+    <h1>AI ROI Attribution & Cost Optimization Report — Nexus Digital Solutions</h1></div>
+  <div><div class="date">Generated February 21, 2026</div>
+    <div class="date">B2B SaaS · 200-1000 employees</div>
+    <div class="badge">CONFIDENTIAL</div></div>
+</div></header>
+
+<div class="kpi-bar"><div class="container"><div class="kpi-grid">
+  <div class="kpi"><div class="kpi-value">$16,087</div><div class="kpi-label">Monthly AI Spend</div></div>
+  <div class="kpi"><div class="kpi-value green">$43,560</div><div class="kpi-label">Annual Savings Potential</div></div>
+  <div class="kpi"><div class="kpi-value">22.6%</div><div class="kpi-label">Cost Reduction</div></div>
+  <div class="kpi"><div class="kpi-value">6</div><div class="kpi-label">AI Projects</div></div>
+  <div class="kpi"><div class="kpi-value" style="color:#FF9800"><span class="grade-box" style="background:#FF9800">C</span></div><div class="kpi-label">Health Grade</div></div>
+  <div class="kpi"><div class="kpi-value">8w</div><div class="kpi-label">Payback Period</div></div>
+</div></div></div>
+
+<div class="container">
+
+<section>
+  <h2>Executive Summary</h2>
+  <div class="callout"><p><strong>Nexus Can Reduce AI Spending 23% While Improving ROI Performance</strong></p></div>
+  <p class="narrative">Nexus Digital Solutions currently spends $193,044 annually on AI across 6 projects, with only 3 of 4 active projects delivering strong ROI. This analysis identifies $43,560 in annual savings opportunities through tool consolidation, model optimization, and elimination of redundant subscriptions. The company's AI portfolio shows promise but suffers from shadow AI proliferation and insufficient governance controls.</p>
+  <div class="callout"><p><strong>Bottom Line:</strong> Nexus can achieve 23% cost reduction while strengthening AI governance to prevent future waste.</p></div>
+  <h3>Key Findings</h3>
+  <ul>
+    <li><strong>Finding 1:</strong> $31,560 in annual waste from redundant tools and unused subscriptions across departments</li>
+    <li><strong>Finding 2:</strong> Marketing delivers highest AI ROI (85 score) while Engineering underperforms (48.5 average)</li>
+    <li><strong>Finding 3:</strong> Model optimization alone can reduce LLM costs by $9,360 annually without quality impact</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Current State Analysis</h2>
+  <p class="narrative">Nexus Digital Solutions operates a diverse AI portfolio spanning customer support, sales intelligence, content generation, and engineering assistance. The company spends $16,087 monthly across 6 projects using multiple providers (OpenAI, Anthropic, AWS Bedrock), but significant inefficiencies plague the current approach. Tool redundancy is extensive, with overlapping functionality in customer support (Intercom AI + Zendesk AI), content generation (Jasper AI + Claude), and knowledge management systems. The Finance team maintains an unused $1,500/month Runway subscription with zero utilization, representing pure waste. Project performance varies dramatically, from Marketing's exceptional 85 ROI score to Engineering's concerning 48.5 average across two projects.</p>
+  <p><strong>AI Maturity Level:</strong> Emerging &nbsp;|&nbsp;
+     <strong>Health Score:</strong> 68/100 &nbsp;|&nbsp;
+     <strong>ROI-Positive Projects:</strong> 75.0%</p>
+</section>
+
+<section>
+  <h2>ROI Attribution by Project</h2>
+  <p class="narrative">ROI attribution was calculated using a comprehensive methodology combining direct cost attribution (LLM usage + subscriptions + team allocation) with quantified business outcomes measured against baseline KPIs. Each project's cost per outcome unit was calculated by dividing total monthly costs by achieved business metrics (tickets resolved, content pieces created, deals qualified, etc.). ROI scores reflect the relationship between investment and measurable business value creation, weighted for strategic alignment and risk factors.</p>
+  <table><thead><tr><th>Project</th><th>Monthly Cost</th><th>ROI</th><th>Alignment</th><th>Utilization</th><th>Rationale</th></tr></thead>
+  <tbody><tr>
+            <td><strong>Customer Support AI Copilot</strong><br><span class="sub">Customer Success</span></td>
+            <td class="num">$4,767/mo</td>
+            <td><span class="score score-green">78</span></td>
+            <td>HIGH</td>
+            <td>optimal</td>
+            <td class="sub">Strong KPI achievement with 54% reduction in resolution time and 52% autonomous resolution rate. Cost savings of $10.3 p</td></tr><tr>
+            <td><strong>Sales Intelligence Pipeline</strong><br><span class="sub">Sales</span></td>
+            <td class="num">$5,940/mo</td>
+            <td><span class="score score-green">65</span></td>
+            <td>HIGH</td>
+            <td>underutilized</td>
+            <td class="sub">Good pipeline growth (22.5%) and improved win rate (13.6%), but high cost per qualified dollar and underutilized tools l</td></tr><tr>
+            <td><strong>Content Generation Engine</strong><br><span class="sub">Marketing</span></td>
+            <td class="num">$2,040/mo</td>
+            <td><span class="score score-green">85</span></td>
+            <td>HIGH</td>
+            <td>underutilized</td>
+            <td class="sub">Exceptional ROI with 217% increase in content output and 60% reduction in agency spend. Strong organic traffic growth of</td></tr><tr>
+            <td><strong>Internal Knowledge Assistant</strong><br><span class="sub">Engineering</span></td>
+            <td class="num">$2,140/mo</td>
+            <td><span class="score score-yellow">42</span></td>
+            <td>MEDIUM</td>
+            <td>underutilized</td>
+            <td class="sub">Moderate progress on onboarding time reduction (25%) but falling short on accuracy targets. High team costs relative to </td></tr><tr>
+            <td><strong>Code Review Automation</strong><br><span class="sub">Engineering</span></td>
+            <td class="num">$2,800/mo</td>
+            <td><span class="score score-yellow">55</span></td>
+            <td>MEDIUM</td>
+            <td>over-provisioned</td>
+            <td class="sub">Early stage pilot showing promise with 33% reduction in review time. Cost effectiveness will depend on scaling and Codac</td></tr><tr>
+            <td><strong>Financial Forecasting Assistant</strong><br><span class="sub">Finance</span></td>
+            <td class="num">$1,500/mo</td>
+            <td><span class="score score-red">0</span></td>
+            <td>LOW</td>
+            <td>underutilized</td>
+            <td class="sub">No usage or outcomes yet. Paying for unused Runway subscription represents pure waste until project activation.</td></tr></tbody></table>
+
+  <div class="findings">
+    <div><h3>🏆 Top Performers</h3><ul><li><strong>Content Generation Engine</strong> (ROI: 85) — 217% increase in content output with 60% agency spend reduction, strong organic traffic growth</li><li><strong>Customer Support AI Copilot</strong> (ROI: 78) — 54% faster resolution time, 52% autonomous resolution rate, $10.30 savings per ticket</li></ul></div>
+    <div><h3>⚠️ Underperformers</h3><ul><li><strong>Internal Knowledge Assistant</strong> (ROI: 42) — High team costs relative to outcomes, missing accuracy targets → <em>Optimize model selection and reduce engineering overhead</em></li><li><strong>Financial Forecasting Assistant</strong> (ROI: 0) — Zero utilization despite active subscription → <em>Cancel subscription immediately or accelerate project timeline</em></li></ul></div>
+  </div>
+</section>
+
+<section>
+  <h2>Optimization Recommendations</h2>
+  <p class="narrative">The optimization strategy focuses on three core areas: immediate elimination of waste through subscription cancellations, tactical model optimization for cost efficiency, and strategic consolidation of redundant tools. These recommendations can be implemented with minimal business disruption while establishing better governance controls to prevent future inefficiencies. The approach prioritizes quick wins that deliver immediate savings while building foundation for long-term AI cost management.</p>
+  <h3>Quick Wins</h3>
+  <div class="qw-grid"><div class="qw-card">
+            <div class="qw-savings">$1,500/mo</div>
+            <h4>Cancel unused Runway FP&A subscription</h4>
+            <p>Eliminate $1,500/month waste from unused Financial Forecasting tool with 0% utilization</p>
+            <div class="qw-meta">TRIVIAL effort · 1 days</div></div><div class="qw-card">
+            <div class="qw-savings">$630.00/mo</div>
+            <h4>Eliminate underutilized Zendesk AI Add-on</h4>
+            <p>Cancel Zendesk AI (35% utilization) and consolidate ticket classification to Intercom AI</p>
+            <div class="qw-meta">LOW effort · 7 days</div></div><div class="qw-card">
+            <div class="qw-savings">$720.00/mo</div>
+            <h4>Cancel redundant Jasper AI subscription</h4>
+            <p>Eliminate Jasper AI (40% utilization) and fully migrate to custom Claude content pipeline</p>
+            <div class="qw-meta">LOW effort · 14 days</div></div></div>
+  <h3>Prioritized Actions</h3>
+  <table><thead><tr><th>#</th><th>Action</th><th>Annual Savings</th><th>Effort</th><th>Timeline</th></tr></thead>
+  <tbody><tr>
+            <td><strong>1</strong></td>
+            <td><strong>Cancel unused Runway FP&A subscription</strong><br><span class="sub">Eliminate $18,000 annual waste from zero-utilization financial forecasting tool</span></td>
+            <td class="num">$18,000</td>
+            <td><span class="tag tag-green">LOW</span></td>
+            <td>1 day</td></tr><tr>
+            <td><strong>2</strong></td>
+            <td><strong>Consolidate redundant content generation tools</strong><br><span class="sub">Cancel Jasper AI and migrate fully to Claude pipeline, saving subscription costs</span></td>
+            <td class="num">$8,640</td>
+            <td><span class="tag tag-yellow">MEDIUM</span></td>
+            <td>2 weeks</td></tr><tr>
+            <td><strong>3</strong></td>
+            <td><strong>Optimize model selection for cost efficiency</strong><br><span class="sub">Migrate appropriate workloads to cost-effective models (gpt-4o-mini, AWS Bedrock)</span></td>
+            <td class="num">$9,360</td>
+            <td><span class="tag tag-yellow">MEDIUM</span></td>
+            <td>3-4 weeks</td></tr></tbody></table>
+</section>
+
+<section>
+  <h2>Implementation Roadmap</h2>
+  <p class="narrative">The implementation follows a three-phase approach designed to maximize early wins while minimizing operational disruption. Phase 1 focuses on immediate cancellations and simple optimizations that require minimal technical work. Phase 2 involves tool consolidations with careful migration planning and team training. Phase 3 establishes long-term governance frameworks to prevent future waste and optimize ongoing AI investments.</p>
+  <div class="phase-card">
+            <h4>Weeks 1-2: Quick Wins</h4>
+            <div class="phase-savings">Expected savings: $25,320</div>
+            <ul><li>Cancel Runway subscription</li><li>Cancel Zendesk AI</li><li>Optimize Customer Support model selection</li></ul>
+            <div class="qw-meta">CFO approval, Customer Success team coordination</div></div><div class="phase-card">
+            <h4>Weeks 3-6: Tool Consolidation</h4>
+            <div class="phase-savings">Expected savings: $18,240</div>
+            <ul><li>Migrate from Jasper to Claude</li><li>Consolidate AWS Bedrock usage</li><li>Cancel Lavender AI</li></ul>
+            <div class="qw-meta">Marketing and Sales team training, technical migration support</div></div><div class="phase-card">
+            <h4>Month 2-3: Governance Implementation</h4>
+            <div class="phase-savings">Expected savings: $0.00</div>
+            <ul><li>Deploy cost monitoring</li><li>Implement approval workflow</li><li>Establish ROI measurement framework</li></ul>
+            <div class="qw-meta">IT infrastructure setup, policy documentation, training programs</div></div>
+</section>
+
+<section>
+  <h2>Risk & Governance</h2>
+  <p class="narrative">The current lack of centralized AI governance has enabled shadow AI proliferation, resulting in the $2,630 monthly redundant spend identified. Without proper controls, this waste will continue growing as more teams independently adopt AI tools. The recommended governance framework includes mandatory approval workflows, real-time cost monitoring, and standardized ROI measurement to prevent future inefficiencies while maintaining innovation velocity.</p>
+  <table><thead><tr><th>Risk</th><th>Severity</th><th>Mitigation</th></tr></thead>
+  <tbody><tr>
+            <td>Service disruption during tool consolidation</td>
+            <td><span class="tag tag-yellow">MEDIUM</span></td>
+            <td>Parallel system operation during migration with comprehensive rollback procedures</td></tr><tr>
+            <td>Team resistance to workflow changes</td>
+            <td><span class="tag tag-yellow">MEDIUM</span></td>
+            <td>Change management program with team champions and enhanced training</td></tr><tr>
+            <td>Quality degradation from model optimization</td>
+            <td><span class="tag tag-green">LOW</span></td>
+            <td>A/B testing validation and continuous quality monitoring dashboards</td></tr></tbody></table>
+</section>
+
+<section>
+  <h2>Appendix</h2>
+  <p><strong>Methodology:</strong> This analysis combines direct cost attribution through API usage tracking and subscription auditing with quantified business outcome measurement against baseline KPIs. ROI calculations include full-cost accounting of team allocation and infrastructure expenses.</p>
+  <p><strong>Data Quality:</strong> Analysis based on 3-month usage patterns with high confidence in cost attribution (87.7% of spend directly attributable to specific projects).</p>
+  <p><strong>Pricing:</strong> LLM pricing based on December 2024 public rates: OpenAI GPT-4o ($5/$15 per 1M tokens), Anthropic Claude-3.5-Sonnet ($3/$15), AWS Bedrock 20-25% below direct API pricing.</p>
+  <h3>Recommended Next Steps</h3>
+  <ol><li>Schedule executive review of optimization recommendations within 1 week</li><li>Assign implementation owners for Phase 1 quick wins</li><li>Begin vendor cancellation process for unused subscriptions</li></ol>
+</section>
+
+</div>
+
+<footer><div class="container">
+  <p><strong>ValueOS</strong> · AI ROI Attribution & Cost Optimization · Generated by ValueOS Agentic Analysis Engine v0.1</p>
+  <p>This report is confidential and intended for Nexus Digital Solutions executive leadership. &copy; 2026 ValueLayer Inc.</p>
+</div></footer>
+
+</body></html>

@@ -1,0 +1,271 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  ValueOS FDE Demo — AI ROI Attribution & Value Assessment Report Generator
+
+Parameters:
+  Stage:
+    Type: String
+    Default: demo
+    AllowedValues: [demo, staging, prod]
+
+Globals:
+  Function:
+    Runtime: python3.12
+    MemorySize: 512
+    Timeout: 120
+    Architectures: [x86_64]
+    Environment:
+      Variables:
+        STAGE: !Ref Stage
+        BEDROCK_MODEL_ID: us.anthropic.claude-sonnet-4-20250514-v1:0
+        BEDROCK_REGION: !Ref AWS::Region
+    Tags:
+      Project: ValueOS-FDE
+      Stage: !Ref Stage
+
+Resources:
+
+  # ═══════════ API GATEWAY (SAM-managed) ═══════════
+  HttpApi:
+    Type: AWS::Serverless::HttpApi
+    Properties:
+      StageName: !Ref Stage
+      CorsConfiguration:
+        AllowOrigins:
+          - "*"
+        AllowMethods:
+          - GET
+          - POST
+          - OPTIONS
+        AllowHeaders:
+          - Authorization
+          - Content-Type
+          - x-tenant-id
+        MaxAge: 86400
+
+  # ═══════════ COGNITO ═══════════
+  UserPool:
+    Type: AWS::Cognito::UserPool
+    Properties:
+      UserPoolName: !Sub valueos-fde-${Stage}
+      AutoVerifiedAttributes:
+        - email
+      UsernameAttributes:
+        - email
+      Schema:
+        - Name: tenant_id
+          AttributeDataType: String
+          Mutable: false
+        - Name: role
+          AttributeDataType: String
+          Mutable: true
+
+  UserPoolClient:
+    Type: AWS::Cognito::UserPoolClient
+    Properties:
+      UserPoolId: !Ref UserPool
+      ClientName: !Sub valueos-fde-${Stage}-client
+      GenerateSecret: false
+      ExplicitAuthFlows:
+        - ALLOW_USER_SRP_AUTH
+        - ALLOW_REFRESH_TOKEN_AUTH
+        - ALLOW_USER_PASSWORD_AUTH
+
+  # ═══════════ DYNAMODB ═══════════
+  ProjectsTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: !Sub valueos-fde-${Stage}-projects
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: tenant_id
+          AttributeType: S
+        - AttributeName: project_id
+          AttributeType: S
+      KeySchema:
+        - AttributeName: tenant_id
+          KeyType: HASH
+        - AttributeName: project_id
+          KeyType: RANGE
+      SSESpecification:
+        SSEEnabled: true
+
+  ReportsTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: !Sub valueos-fde-${Stage}-reports
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: tenant_id
+          AttributeType: S
+        - AttributeName: report_id
+          AttributeType: S
+      KeySchema:
+        - AttributeName: tenant_id
+          KeyType: HASH
+        - AttributeName: report_id
+          KeyType: RANGE
+      SSESpecification:
+        SSEEnabled: true
+
+  # ═══════════ S3 ═══════════
+  ReportBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Sub valueos-fde-${Stage}-reports-${AWS::AccountId}
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault:
+              SSEAlgorithm: AES256
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+      LifecycleConfiguration:
+        Rules:
+          - Id: ExpireReports
+            Status: Enabled
+            ExpirationInDays: 90
+
+  # ═══════════ LAMBDA FUNCTIONS ═══════════
+
+  IngestFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: !Sub valueos-fde-${Stage}-ingest
+      Handler: handlers/ingest.handler
+      CodeUri: src/
+      Description: Ingest client AI project JSON data
+      Environment:
+        Variables:
+          PROJECTS_TABLE: !Ref ProjectsTable
+      Events:
+        IngestProjects:
+          Type: HttpApi
+          Properties:
+            ApiId: !Ref HttpApi
+            Path: /api/v1/projects/ingest
+            Method: POST
+        GetProjects:
+          Type: HttpApi
+          Properties:
+            ApiId: !Ref HttpApi
+            Path: /api/v1/projects
+            Method: GET
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref ProjectsTable
+
+  AnalyzeFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: !Sub valueos-fde-${Stage}-analyze
+      Handler: handlers/analyze.handler
+      CodeUri: src/
+      Description: Bedrock Claude Sonnet 4.5 agentic analysis and report generation
+      MemorySize: 1024
+      Timeout: 900
+      Environment:
+        Variables:
+          PROJECTS_TABLE: !Ref ProjectsTable
+          REPORTS_TABLE: !Ref ReportsTable
+          REPORT_BUCKET: !Ref ReportBucket
+      Events:
+        GenerateReport:
+          Type: HttpApi
+          Properties:
+            ApiId: !Ref HttpApi
+            Path: /api/v1/reports/generate
+            Method: POST
+        GetReport:
+          Type: HttpApi
+          Properties:
+            ApiId: !Ref HttpApi
+            Path: /api/v1/reports/{reportId}
+            Method: GET
+        ListReports:
+          Type: HttpApi
+          Properties:
+            ApiId: !Ref HttpApi
+            Path: /api/v1/reports
+            Method: GET
+      Policies:
+        - DynamoDBReadPolicy:
+            TableName: !Ref ProjectsTable
+        - DynamoDBCrudPolicy:
+            TableName: !Ref ReportsTable
+        - S3CrudPolicy:
+            BucketName: !Ref ReportBucket
+        - Version: '2012-10-17'
+          Statement:
+            - Effect: Allow
+              Action:
+                - bedrock:InvokeModel
+                - bedrock:InvokeModelWithResponseStream
+              Resource:
+                - !Sub arn:aws:bedrock:${AWS::Region}::foundation-model/*
+                - !Sub arn:aws:bedrock:${AWS::Region}:${AWS::AccountId}:inference-profile/*
+                - arn:aws:bedrock:*::foundation-model/*
+            - Effect: Allow
+              Action:
+                - lambda:InvokeFunction
+              Resource: !Sub arn:aws:lambda:${AWS::Region}:${AWS::AccountId}:function:valueos-fde-${Stage}-analyze
+
+  DownloadFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: !Sub valueos-fde-${Stage}-download
+      Handler: handlers/download.handler
+      CodeUri: src/
+      Description: Generate presigned S3 download URLs for reports
+      Timeout: 15
+      Environment:
+        Variables:
+          REPORTS_TABLE: !Ref ReportsTable
+          REPORT_BUCKET: !Ref ReportBucket
+      Events:
+        Download:
+          Type: HttpApi
+          Properties:
+            ApiId: !Ref HttpApi
+            Path: /api/v1/reports/{reportId}/download
+            Method: GET
+      Policies:
+        - DynamoDBReadPolicy:
+            TableName: !Ref ReportsTable
+        - S3ReadPolicy:
+            BucketName: !Ref ReportBucket
+
+  SeedFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: !Sub valueos-fde-${Stage}-seed
+      Handler: handlers/seed.handler
+      CodeUri: src/
+      Description: Load sample AI project data for live demo
+      Timeout: 60
+      Environment:
+        Variables:
+          PROJECTS_TABLE: !Ref ProjectsTable
+      Events:
+        Seed:
+          Type: HttpApi
+          Properties:
+            ApiId: !Ref HttpApi
+            Path: /api/v1/demo/seed
+            Method: POST
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref ProjectsTable
+
+Outputs:
+  ApiUrl:
+    Value: !Sub https://${HttpApi}.execute-api.${AWS::Region}.amazonaws.com/${Stage}
+  UserPoolId:
+    Value: !Ref UserPool
+  UserPoolClientId:
+    Value: !Ref UserPoolClient
+  ReportBucket:
+    Value: !Ref ReportBucket

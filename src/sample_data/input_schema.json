@@ -1,0 +1,70 @@
+{
+  "_schema_version": "1.0",
+  "_description": "ValueOS AI Project Portfolio Schema — Fill in your company's AI project data for analysis",
+  "_instructions": "Replace all placeholder values with your actual data. Remove projects that don't apply. Add more projects as needed.",
+
+  "company": {
+    "name": "Your Company Name",
+    "industry": "e.g. fintech, healthtech, saas, ecommerce, manufacturing",
+    "size": "e.g. 50-200, 200-1000, 1000-5000, 5000+",
+    "annual_revenue_usd": 0,
+    "ai_budget_annual_usd": 0
+  },
+
+  "projects": [
+    {
+      "name": "Project Name",
+      "department": "e.g. Engineering, Marketing, Sales, Support, Finance, HR, Product",
+      "status": "active|pilot|planned|deprecated",
+      "owner": "Team or person responsible",
+      "description": "What does this AI project do?",
+      "business_objective": "What business outcome does it target?",
+      "start_date": "YYYY-MM-DD",
+
+      "kpis": [
+        {
+          "name": "KPI Name (e.g. Resolution Time, Conversion Rate, Cost per Unit)",
+          "baseline": 0,
+          "current": 0,
+          "target": 0,
+          "unit": "e.g. hours, percent, USD, pieces"
+        }
+      ],
+
+      "usage": [
+        {
+          "provider": "openai|anthropic|google|aws_bedrock|azure_openai",
+          "model": "e.g. gpt-4o, claude-sonnet-4-5, gemini-2.0-flash",
+          "monthly_calls": 0,
+          "avg_input_tokens": 0,
+          "avg_output_tokens": 0
+        }
+      ],
+
+      "subscriptions": [
+        {
+          "tool": "Tool name (e.g. Jasper AI, GitHub Copilot, Intercom AI)",
+          "monthly_cost_usd": 0,
+          "seats": 0,
+          "utilization_pct": 0
+        }
+      ],
+
+      "team": {
+        "headcount": 0,
+        "hours_per_week": 0,
+        "avg_hourly_cost_usd": 0
+      },
+
+      "risks": [
+        "Known risk or concern 1",
+        "Known risk or concern 2"
+      ],
+
+      "redundancies": [
+        "Tool A and Tool B both do X",
+        "Model A and Model B used for same task"
+      ]
+    }
+  ]
+}

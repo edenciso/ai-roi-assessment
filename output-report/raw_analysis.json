@@ -1,0 +1,637 @@
+{
+  "pass1_attribution": {
+    "portfolio_summary": {
+      "total_monthly_llm_cost_usd": 2847,
+      "total_monthly_subscription_cost_usd": 13240,
+      "total_monthly_ai_spend_usd": 16087,
+      "annualized_ai_spend_usd": 193044,
+      "project_count": 6,
+      "active_projects": 4,
+      "providers_used": [
+        "openai",
+        "anthropic",
+        "aws_bedrock"
+      ],
+      "models_used": [
+        "gpt-4o",
+        "gpt-4o-mini",
+        "text-embedding-3-small",
+        "claude-sonnet-4-5",
+        "anthropic.claude-3-5-sonnet",
+        "amazon.titan-text-express"
+      ],
+      "total_monthly_tokens": 32340000
+    },
+    "project_attributions": [
+      {
+        "project_name": "Customer Support AI Copilot",
+        "department": "Customer Success",
+        "status": "active",
+        "monthly_llm_cost_usd": 567,
+        "monthly_subscription_cost_usd": 4200,
+        "monthly_total_cost_usd": 4767,
+        "monthly_team_cost_usd": 4875,
+        "cost_per_outcome_unit": 91.7,
+        "roi_score": 78,
+        "value_alignment": "high",
+        "roi_rationale": "Strong KPI achievement with 54% reduction in resolution time and 52% autonomous resolution rate. Cost savings of $10.3 per ticket offset AI investment.",
+        "kpi_achievement_pct": 75,
+        "utilization_efficiency": "optimal",
+        "risk_level": "medium"
+      },
+      {
+        "project_name": "Sales Intelligence Pipeline",
+        "department": "Sales",
+        "status": "active",
+        "monthly_llm_cost_usd": 990,
+        "monthly_subscription_cost_usd": 4950,
+        "monthly_total_cost_usd": 5940,
+        "monthly_team_cost_usd": 2550,
+        "cost_per_outcome_unit": 606.1,
+        "roi_score": 65,
+        "value_alignment": "high",
+        "roi_rationale": "Good pipeline growth (22.5%) and improved win rate (13.6%), but high cost per qualified dollar and underutilized tools like Lavender AI.",
+        "kpi_achievement_pct": 68,
+        "utilization_efficiency": "underutilized",
+        "risk_level": "medium"
+      },
+      {
+        "project_name": "Content Generation Engine",
+        "department": "Marketing",
+        "status": "active",
+        "monthly_llm_cost_usd": 510,
+        "monthly_subscription_cost_usd": 1530,
+        "monthly_total_cost_usd": 2040,
+        "monthly_team_cost_usd": 3250,
+        "cost_per_outcome_unit": 53.7,
+        "roi_score": 85,
+        "value_alignment": "high",
+        "roi_rationale": "Exceptional ROI with 217% increase in content output and 60% reduction in agency spend. Strong organic traffic growth offsetting AI costs.",
+        "kpi_achievement_pct": 92,
+        "utilization_efficiency": "underutilized",
+        "risk_level": "low"
+      },
+      {
+        "project_name": "Internal Knowledge Assistant",
+        "department": "Engineering",
+        "status": "active",
+        "monthly_llm_cost_usd": 480,
+        "monthly_subscription_cost_usd": 1660,
+        "monthly_total_cost_usd": 2140,
+        "monthly_team_cost_usd": 5700,
+        "cost_per_outcome_unit": 475.6,
+        "roi_score": 42,
+        "value_alignment": "medium",
+        "roi_rationale": "Moderate progress on onboarding time reduction (25%) but falling short on accuracy targets. High team costs relative to outcomes achieved.",
+        "kpi_achievement_pct": 58,
+        "utilization_efficiency": "underutilized",
+        "risk_level": "high"
+      },
+      {
+        "project_name": "Code Review Automation",
+        "department": "Engineering",
+        "status": "pilot",
+        "monthly_llm_cost_usd": 300,
+        "monthly_subscription_cost_usd": 2500,
+        "monthly_total_cost_usd": 2800,
+        "monthly_team_cost_usd": 950,
+        "cost_per_outcome_unit": 233.3,
+        "roi_score": 55,
+        "value_alignment": "medium",
+        "roi_rationale": "Early stage pilot showing promise with 33% reduction in review time. Cost effectiveness will depend on scaling and Codacy optimization.",
+        "kpi_achievement_pct": 45,
+        "utilization_efficiency": "over-provisioned",
+        "risk_level": "medium"
+      },
+      {
+        "project_name": "Financial Forecasting Assistant",
+        "department": "Finance",
+        "status": "planned",
+        "monthly_llm_cost_usd": 0,
+        "monthly_subscription_cost_usd": 1500,
+        "monthly_total_cost_usd": 1500,
+        "monthly_team_cost_usd": 500,
+        "cost_per_outcome_unit": 0,
+        "roi_score": 0,
+        "value_alignment": "low",
+        "roi_rationale": "No usage or outcomes yet. Paying for unused Runway subscription represents pure waste until project activation.",
+        "kpi_achievement_pct": 0,
+        "utilization_efficiency": "underutilized",
+        "risk_level": "critical"
+      }
+    ],
+    "cost_by_provider": {
+      "openai": {
+        "monthly_usd": 567,
+        "pct_of_total": 19.9,
+        "models": [
+          "gpt-4o",
+          "gpt-4o-mini",
+          "text-embedding-3-small"
+        ]
+      },
+      "anthropic": {
+        "monthly_usd": 1800,
+        "pct_of_total": 63.2,
+        "models": [
+          "claude-sonnet-4-5"
+        ]
+      },
+      "aws_bedrock": {
+        "monthly_usd": 480,
+        "pct_of_total": 16.9,
+        "models": [
+          "anthropic.claude-3-5-sonnet",
+          "amazon.titan-text-express"
+        ]
+      }
+    },
+    "cost_by_department": {
+      "Customer Success": {
+        "monthly_usd": 4767,
+        "project_count": 1,
+        "avg_roi_score": 78
+      },
+      "Sales": {
+        "monthly_usd": 5940,
+        "project_count": 1,
+        "avg_roi_score": 65
+      },
+      "Marketing": {
+        "monthly_usd": 2040,
+        "project_count": 1,
+        "avg_roi_score": 85
+      },
+      "Engineering": {
+        "monthly_usd": 4940,
+        "project_count": 2,
+        "avg_roi_score": 48.5
+      },
+      "Finance": {
+        "monthly_usd": 1500,
+        "project_count": 1,
+        "avg_roi_score": 0
+      }
+    },
+    "redundancy_analysis": {
+      "identified_overlaps": [
+        {
+          "tools_involved": [
+            "Intercom AI",
+            "Zendesk AI Add-on"
+          ],
+          "overlap_type": "Duplicate ticket classification functionality",
+          "estimated_waste_monthly_usd": 630,
+          "recommendation": "Consolidate to single platform, eliminate Zendesk AI (35% utilization)"
+        },
+        {
+          "tools_involved": [
+            "Jasper AI",
+            "Claude Sonnet"
+          ],
+          "overlap_type": "Content generation redundancy",
+          "estimated_waste_monthly_usd": 720,
+          "recommendation": "Cancel Jasper AI (40% utilization), rely on custom Claude pipeline"
+        },
+        {
+          "tools_involved": [
+            "Lavender AI",
+            "GPT-4o outreach"
+          ],
+          "overlap_type": "Email generation overlap",
+          "estimated_waste_monthly_usd": 338,
+          "recommendation": "Cancel Lavender AI (25% utilization), consolidate on GPT-4o"
+        },
+        {
+          "tools_involved": [
+            "Notion AI",
+            "Claude RAG system"
+          ],
+          "overlap_type": "Knowledge management redundancy",
+          "estimated_waste_monthly_usd": 672,
+          "recommendation": "Cancel Notion AI (30% utilization), focus on custom RAG solution"
+        },
+        {
+          "tools_involved": [
+            "Codacy",
+            "Claude code review"
+          ],
+          "overlap_type": "Code analysis overlap",
+          "estimated_waste_monthly_usd": 270,
+          "recommendation": "Evaluate Codacy value-add vs Claude capabilities"
+        }
+      ],
+      "total_estimated_monthly_waste_usd": 2630,
+      "consolidation_candidates": [
+        "Customer Support AI tools",
+        "Content Generation platforms",
+        "Engineering Knowledge systems"
+      ]
+    },
+    "top_cost_drivers": [
+      {
+        "driver": "Sales Intelligence subscriptions (Apollo, Gong, Clay, Lavender)",
+        "monthly_impact_usd": 4950,
+        "actionable": true
+      },
+      {
+        "driver": "Customer Support dual platform costs (Intercom + Zendesk)",
+        "monthly_impact_usd": 4200,
+        "actionable": true
+      },
+      {
+        "driver": "Engineering team allocation costs",
+        "monthly_impact_usd": 6650,
+        "actionable": true
+      },
+      {
+        "driver": "Anthropic Claude usage across multiple projects",
+        "monthly_impact_usd": 1800,
+        "actionable": false
+      },
+      {
+        "driver": "Unused Financial Forecasting subscription",
+        "monthly_impact_usd": 1500,
+        "actionable": true
+      }
+    ]
+  },
+  "pass2_optimization": {
+    "optimization_summary": {
+      "current_monthly_spend_usd": 16087,
+      "optimized_monthly_spend_usd": 12457,
+      "monthly_savings_usd": 3630,
+      "annual_savings_usd": 43560,
+      "savings_percentage": 22.6,
+      "implementation_effort": "medium",
+      "time_to_full_savings_weeks": 8,
+      "confidence_level": "high"
+    },
+    "quick_wins": [
+      {
+        "title": "Cancel unused Runway FP&A subscription",
+        "description": "Eliminate $1,500/month waste from unused Financial Forecasting tool with 0% utilization",
+        "monthly_savings_usd": 1500,
+        "effort": "trivial",
+        "timeline_days": 1,
+        "action_steps": [
+          "Contact Runway to cancel subscription",
+          "Download any existing data",
+          "Update CFO on project timeline"
+        ]
+      },
+      {
+        "title": "Eliminate underutilized Zendesk AI Add-on",
+        "description": "Cancel Zendesk AI (35% utilization) and consolidate ticket classification to Intercom AI",
+        "monthly_savings_usd": 630,
+        "effort": "low",
+        "timeline_days": 7,
+        "action_steps": [
+          "Migrate remaining Zendesk AI workflows to Intercom",
+          "Cancel Zendesk AI subscription",
+          "Update team training materials"
+        ]
+      },
+      {
+        "title": "Cancel redundant Jasper AI subscription",
+        "description": "Eliminate Jasper AI (40% utilization) and fully migrate to custom Claude content pipeline",
+        "monthly_savings_usd": 720,
+        "effort": "low",
+        "timeline_days": 14,
+        "action_steps": [
+          "Export Jasper brand voice settings",
+          "Enhance Claude pipeline with brand guidelines",
+          "Train marketing team on Claude workflow",
+          "Cancel Jasper subscription"
+        ]
+      }
+    ],
+    "model_optimization": [
+      {
+        "current_model": "openai/gpt-4o",
+        "recommended_model": "openai/gpt-4o-mini",
+        "affected_project": "Customer Support AI Copilot",
+        "quality_impact": "minimal",
+        "monthly_savings_usd": 180,
+        "rationale": "45,000 monthly calls for simple ticket classification can use gpt-4o-mini instead of gpt-4o, maintaining 95%+ accuracy at 85% cost reduction"
+      },
+      {
+        "current_model": "anthropic/claude-sonnet-4-5",
+        "recommended_model": "aws_bedrock/anthropic.claude-3-5-sonnet",
+        "affected_project": "Sales Intelligence Pipeline",
+        "quality_impact": "none",
+        "monthly_savings_usd": 450,
+        "rationale": "Migrate Claude API calls to AWS Bedrock for 25% cost reduction with identical model performance and better enterprise controls"
+      },
+      {
+        "current_model": "anthropic/claude-sonnet-4-5",
+        "recommended_model": "aws_bedrock/anthropic.claude-3-5-sonnet",
+        "affected_project": "Content Generation Engine",
+        "quality_impact": "none",
+        "monthly_savings_usd": 150,
+        "rationale": "Consolidate content generation to Bedrock Claude for cost efficiency and unified enterprise billing"
+      }
+    ],
+    "consolidation_plan": [
+      {
+        "action": "Eliminate Lavender AI and consolidate email generation",
+        "tools_affected": [
+          "Lavender AI",
+          "GPT-4o outreach"
+        ],
+        "replacement": "Enhanced GPT-4o pipeline with Lavender's templates",
+        "monthly_savings_usd": 338,
+        "migration_effort_days": 10,
+        "risk": "low"
+      },
+      {
+        "action": "Cancel Notion AI and standardize on custom RAG",
+        "tools_affected": [
+          "Notion AI"
+        ],
+        "replacement": "Enhanced Claude RAG system with Notion integration",
+        "monthly_savings_usd": 672,
+        "migration_effort_days": 21,
+        "risk": "medium"
+      },
+      {
+        "action": "Evaluate Codacy redundancy with Claude code review",
+        "tools_affected": [
+          "Codacy"
+        ],
+        "replacement": "Enhanced Claude code review with custom rules engine",
+        "monthly_savings_usd": 270,
+        "migration_effort_days": 30,
+        "risk": "medium"
+      }
+    ],
+    "governance_recommendations": [
+      {
+        "area": "Shadow AI prevention",
+        "current_state": "No centralized approval process, teams purchasing AI tools independently",
+        "recommended_state": "Mandatory AI tool approval through IT/Finance with overlap analysis",
+        "priority": "immediate",
+        "business_impact": "Prevent $2,630/month in redundant tool spend identified in analysis"
+      },
+      {
+        "area": "Cost monitoring and alerts",
+        "current_state": "No real-time visibility into LLM token consumption",
+        "recommended_state": "Automated alerts at 80% of monthly budget with project-level tracking",
+        "priority": "short-term",
+        "business_impact": "Prevent budget overruns and optimize token usage across projects"
+      },
+      {
+        "area": "Model standardization",
+        "current_state": "Multiple providers and models across similar use cases",
+        "recommended_state": "Standardized model tiers: AWS Bedrock Claude for enterprise, GPT-4o-mini for simple tasks",
+        "priority": "medium-term",
+        "business_impact": "Reduce complexity, improve cost predictability, enhance enterprise controls"
+      },
+      {
+        "area": "ROI measurement framework",
+        "current_state": "Inconsistent KPI tracking across projects",
+        "recommended_state": "Standardized AI ROI dashboard with monthly project reviews",
+        "priority": "short-term",
+        "business_impact": "Identify underperforming projects early, reallocate budget to high-ROI initiatives"
+      }
+    ],
+    "implementation_roadmap": {
+      "week_1_2": [
+        {
+          "action": "Cancel Runway FP&A subscription",
+          "owner": "CFO",
+          "savings_usd": 1500
+        },
+        {
+          "action": "Cancel Zendesk AI Add-on",
+          "owner": "VP Customer Success",
+          "savings_usd": 630
+        },
+        {
+          "action": "Migrate Customer Support to gpt-4o-mini for simple tasks",
+          "owner": "VP Customer Success",
+          "savings_usd": 180
+        }
+      ],
+      "week_3_4": [
+        {
+          "action": "Cancel Jasper AI and complete Claude migration",
+          "owner": "VP Marketing",
+          "savings_usd": 720
+        },
+        {
+          "action": "Migrate Sales Intelligence to AWS Bedrock Claude",
+          "owner": "CRO",
+          "savings_usd": 450
+        },
+        {
+          "action": "Cancel Lavender AI and enhance GPT-4o pipeline",
+          "owner": "CRO",
+          "savings_usd": 338
+        }
+      ],
+      "month_2_3": [
+        {
+          "action": "Cancel Notion AI and enhance custom RAG system",
+          "owner": "VP Engineering",
+          "savings_usd": 672
+        },
+        {
+          "action": "Evaluate Codacy replacement with Claude",
+          "owner": "Engineering Manager",
+          "savings_usd": 270
+        },
+        {
+          "action": "Implement AI governance framework and cost monitoring",
+          "owner": "CFO",
+          "savings_usd": 0
+        }
+      ]
+    },
+    "risk_assessment": [
+      {
+        "risk": "Service disruption during tool consolidation",
+        "probability": "medium",
+        "impact": "Temporary productivity loss during 2-week migration windows",
+        "mitigation": "Staged rollouts with parallel systems during transition, comprehensive team training"
+      },
+      {
+        "risk": "Quality degradation from model downgrades",
+        "probability": "low",
+        "impact": "Reduced accuracy in customer support responses",
+        "mitigation": "A/B testing before full migration, rollback procedures, quality monitoring dashboards"
+      },
+      {
+        "risk": "Team resistance to workflow changes",
+        "probability": "medium",
+        "impact": "Slower adoption of optimized tools and processes",
+        "mitigation": "Change management program, team champions, improved training and documentation"
+      },
+      {
+        "risk": "Vendor lock-in with AWS Bedrock consolidation",
+        "probability": "low",
+        "impact": "Reduced flexibility for future provider negotiations",
+        "mitigation": "Maintain multi-provider capability, regular market analysis, contract terms review"
+      }
+    ]
+  },
+  "pass3_report": {
+    "report_title": "AI ROI Attribution & Cost Optimization Report \u2014 Nexus Digital Solutions",
+    "generated_date": "2024-12-19",
+    "executive_summary": {
+      "headline": "Nexus Can Reduce AI Spending 23% While Improving ROI Performance",
+      "overview_paragraph": "Nexus Digital Solutions currently spends $193,044 annually on AI across 6 projects, with only 3 of 4 active projects delivering strong ROI. This analysis identifies $43,560 in annual savings opportunities through tool consolidation, model optimization, and elimination of redundant subscriptions. The company's AI portfolio shows promise but suffers from shadow AI proliferation and insufficient governance controls.",
+      "key_finding_1": "$31,560 in annual waste from redundant tools and unused subscriptions across departments",
+      "key_finding_2": "Marketing delivers highest AI ROI (85 score) while Engineering underperforms (48.5 average)",
+      "key_finding_3": "Model optimization alone can reduce LLM costs by $9,360 annually without quality impact",
+      "bottom_line": "Nexus can achieve 23% cost reduction while strengthening AI governance to prevent future waste."
+    },
+    "current_state_analysis": {
+      "narrative": "Nexus Digital Solutions operates a diverse AI portfolio spanning customer support, sales intelligence, content generation, and engineering assistance. The company spends $16,087 monthly across 6 projects using multiple providers (OpenAI, Anthropic, AWS Bedrock), but significant inefficiencies plague the current approach. Tool redundancy is extensive, with overlapping functionality in customer support (Intercom AI + Zendesk AI), content generation (Jasper AI + Claude), and knowledge management systems. The Finance team maintains an unused $1,500/month Runway subscription with zero utilization, representing pure waste. Project performance varies dramatically, from Marketing's exceptional 85 ROI score to Engineering's concerning 48.5 average across two projects.",
+      "health_score": 68,
+      "health_grade": "C",
+      "maturity_level": "Emerging",
+      "critical_metrics": {
+        "total_annual_ai_spend": 193044,
+        "cost_per_employee_monthly": 26.8,
+        "ai_tools_per_department_avg": 2.4,
+        "utilization_rate_avg_pct": 41.7,
+        "roi_positive_project_pct": 75.0,
+        "shadow_ai_risk_level": "high"
+      }
+    },
+    "roi_attribution_detail": {
+      "narrative": "ROI attribution was calculated using a comprehensive methodology combining direct cost attribution (LLM usage + subscriptions + team allocation) with quantified business outcomes measured against baseline KPIs. Each project's cost per outcome unit was calculated by dividing total monthly costs by achieved business metrics (tickets resolved, content pieces created, deals qualified, etc.). ROI scores reflect the relationship between investment and measurable business value creation, weighted for strategic alignment and risk factors.",
+      "top_performers": [
+        {
+          "project": "Content Generation Engine",
+          "roi_score": 85,
+          "why": "217% increase in content output with 60% agency spend reduction, strong organic traffic growth"
+        },
+        {
+          "project": "Customer Support AI Copilot",
+          "roi_score": 78,
+          "why": "54% faster resolution time, 52% autonomous resolution rate, $10.30 savings per ticket"
+        }
+      ],
+      "underperformers": [
+        {
+          "project": "Internal Knowledge Assistant",
+          "roi_score": 42,
+          "issue": "High team costs relative to outcomes, missing accuracy targets",
+          "recommendation": "Optimize model selection and reduce engineering overhead"
+        },
+        {
+          "project": "Financial Forecasting Assistant",
+          "roi_score": 0,
+          "issue": "Zero utilization despite active subscription",
+          "recommendation": "Cancel subscription immediately or accelerate project timeline"
+        }
+      ],
+      "unattributable_spend_pct": 12.3,
+      "attribution_confidence": "high"
+    },
+    "optimization_recommendations": {
+      "narrative": "The optimization strategy focuses on three core areas: immediate elimination of waste through subscription cancellations, tactical model optimization for cost efficiency, and strategic consolidation of redundant tools. These recommendations can be implemented with minimal business disruption while establishing better governance controls to prevent future inefficiencies. The approach prioritizes quick wins that deliver immediate savings while building foundation for long-term AI cost management.",
+      "total_annual_savings_potential_usd": 43560,
+      "savings_as_pct_of_spend": 22.6,
+      "payback_period_weeks": 2,
+      "prioritized_actions": [
+        {
+          "priority": 1,
+          "title": "Cancel unused Runway FP&A subscription",
+          "description": "Eliminate $18,000 annual waste from zero-utilization financial forecasting tool",
+          "annual_savings_usd": 18000,
+          "effort": "low",
+          "timeline": "1 day"
+        },
+        {
+          "priority": 2,
+          "title": "Consolidate redundant content generation tools",
+          "description": "Cancel Jasper AI and migrate fully to Claude pipeline, saving subscription costs",
+          "annual_savings_usd": 8640,
+          "effort": "medium",
+          "timeline": "2 weeks"
+        },
+        {
+          "priority": 3,
+          "title": "Optimize model selection for cost efficiency",
+          "description": "Migrate appropriate workloads to cost-effective models (gpt-4o-mini, AWS Bedrock)",
+          "annual_savings_usd": 9360,
+          "effort": "medium",
+          "timeline": "3-4 weeks"
+        }
+      ]
+    },
+    "implementation_roadmap": {
+      "narrative": "The implementation follows a three-phase approach designed to maximize early wins while minimizing operational disruption. Phase 1 focuses on immediate cancellations and simple optimizations that require minimal technical work. Phase 2 involves tool consolidations with careful migration planning and team training. Phase 3 establishes long-term governance frameworks to prevent future waste and optimize ongoing AI investments.",
+      "phases": [
+        {
+          "phase": "Weeks 1-2: Quick Wins",
+          "actions": [
+            "Cancel Runway subscription",
+            "Cancel Zendesk AI",
+            "Optimize Customer Support model selection"
+          ],
+          "expected_savings_usd": 25320,
+          "resources_needed": "CFO approval, Customer Success team coordination"
+        },
+        {
+          "phase": "Weeks 3-6: Tool Consolidation",
+          "actions": [
+            "Migrate from Jasper to Claude",
+            "Consolidate AWS Bedrock usage",
+            "Cancel Lavender AI"
+          ],
+          "expected_savings_usd": 18240,
+          "resources_needed": "Marketing and Sales team training, technical migration support"
+        },
+        {
+          "phase": "Month 2-3: Governance Implementation",
+          "actions": [
+            "Deploy cost monitoring",
+            "Implement approval workflow",
+            "Establish ROI measurement framework"
+          ],
+          "expected_savings_usd": 0,
+          "resources_needed": "IT infrastructure setup, policy documentation, training programs"
+        }
+      ]
+    },
+    "risk_and_governance": {
+      "narrative": "The current lack of centralized AI governance has enabled shadow AI proliferation, resulting in the $2,630 monthly redundant spend identified. Without proper controls, this waste will continue growing as more teams independently adopt AI tools. The recommended governance framework includes mandatory approval workflows, real-time cost monitoring, and standardized ROI measurement to prevent future inefficiencies while maintaining innovation velocity.",
+      "top_risks": [
+        {
+          "risk": "Service disruption during tool consolidation",
+          "severity": "medium",
+          "mitigation": "Parallel system operation during migration with comprehensive rollback procedures"
+        },
+        {
+          "risk": "Team resistance to workflow changes",
+          "severity": "medium",
+          "mitigation": "Change management program with team champions and enhanced training"
+        },
+        {
+          "risk": "Quality degradation from model optimization",
+          "severity": "low",
+          "mitigation": "A/B testing validation and continuous quality monitoring dashboards"
+        }
+      ]
+    },
+    "appendix": {
+      "methodology_note": "This analysis combines direct cost attribution through API usage tracking and subscription auditing with quantified business outcome measurement against baseline KPIs. ROI calculations include full-cost accounting of team allocation and infrastructure expenses.",
+      "data_quality_note": "Analysis based on 3-month usage patterns with high confidence in cost attribution (87.7% of spend directly attributable to specific projects).",
+      "pricing_assumptions": "LLM pricing based on December 2024 public rates: OpenAI GPT-4o ($5/$15 per 1M tokens), Anthropic Claude-3.5-Sonnet ($3/$15), AWS Bedrock 20-25% below direct API pricing.",
+      "next_steps": [
+        "Schedule executive review of optimization recommendations within 1 week",
+        "Assign implementation owners for Phase 1 quick wins",
+        "Begin vendor cancellation process for unused subscriptions"
+      ]
+    }
+  },
+  "metadata": {
+    "model": "us.anthropic.claude-sonnet-4-20250514-v1:0",
+    "passes_completed": 3,
+    "analysis_engine": "ValueOS Agentic Orchestration v0.1"
+  }
+}
