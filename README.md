@@ -1,4 +1,4 @@
-# ValueOS JSON dataset Demo - AI ROI Attribution & Value Assessment (beta)
+# ValueOS - AI ROI Attribution & Value Assessment (beta)
 
 AWS SAM Serverless deployment workflow for an Autonomous Agentic AI ROI Value Assessment
 
